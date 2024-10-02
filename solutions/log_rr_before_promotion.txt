@@ -1,0 +1,41 @@
+[ec2-user@ip-10-2-10-234 ~]$ mysql -h udacity-replica.ch4hywjpcgbh.us-east-2.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 46
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.007 sec)
+
+MySQL [(none)]> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [udacity]> select * from person;
++----+------------+-----------+
+| id | first_name | last_name |
++----+------------+-----------+
+|  1 | Jane       | Smith     |
+|  2 | Alice      | Johnson   |
+|  3 | Bob        | Williams  |
++----+------------+-----------+
+3 rows in set (0.007 sec)
+
+MySQL [udacity]> INSERT INTO person (first_name, last_name) VALUES ('John', 'Dear');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]>

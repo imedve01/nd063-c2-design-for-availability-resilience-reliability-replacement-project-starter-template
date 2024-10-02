@@ -1,0 +1,12 @@
+    In an AWS Multi-AZ, multi-region database, the time it takes to recover from an outage 
+    and the amount of data you might lose depend on whether the issue is in a single 
+    Availability Zone (AZ) or an entire region. For a single AZ outage, the system can usually 
+    recover in less than 1 minute without losing any data, as it automatically switches to a backup instance. 
+    However, if there’s a single region outage, recovery might take from minutes to hours 
+    and could involve some manual steps, while you might lose a little data, typically within a few seconds 
+    to minutes, due to the way data is replicated across regions.
+
+    Minimum RTO for a single AZ outage - Less than 1 minute
+    Minimum RTO for a single region outage - Minutes to hours
+    Minimum RPO for a single AZ outage - Zero (no data loss)
+    Minimum RPO for a single region outage - Seconds to minutes (potential minimal data loss)
